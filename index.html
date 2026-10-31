@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Недрочабрь: Путь Дисциплины</title>
+    <title>Недрочабрь 2026: Путь Дисциплины</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -13,13 +13,27 @@
     <div class="bg-grid"></div>
     <div class="bg-glow"></div>
 
-    <!-- Навигация (визуально как многостраничный сайт) -->
+    <!-- Живой 3D-наблюдатель (следит за курсором) -->
+    <div class="watcher-3d" id="watcher">
+        <div class="watcher-head">
+            <div class="watcher-eye left">
+                <div class="pupil"></div>
+            </div>
+            <div class="watcher-eye right">
+                <div class="pupil"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Навигация -->
     <nav class="main-nav">
-        <div class="nav-logo">НДРЧБР <span class="accent">2024</span></div>
+        <div class="nav-logo">НДРЧБР <span class="accent">2026</span></div>
         <div class="nav-links">
             <button class="nav-btn active" data-page="home">Главная</button>
             <button class="nav-btn" data-page="guide">Гайд</button>
+            <button class="nav-btn" data-page="philosophy">Ситхи vs Джедаи</button>
             <button class="nav-btn" data-page="tools">Инструменты</button>
+            <button class="nav-btn" data-page="friends">Рассказать друзьям</button>
             <button class="nav-btn" data-page="game">Тренировка</button>
         </div>
         <div class="streak-display">
@@ -33,7 +47,7 @@
         <div class="content-wrapper">
             <div class="text-block">
                 <h1 class="main-title">Перезагрузка <span class="accent">Сознания</span></h1>
-                <p class="subtitle">Недрочабрь — это не просто челлендж. Это испытание силы воли, перестройка дофаминовой системы и возвращение контроля над собственной жизнью.</p>
+                <p class="subtitle">Недрочабрь 2026 — это не просто челлендж. Это испытание силы воли, перестройка дофаминовой системы и возвращение контроля над собственной жизнью.</p>
                 <div class="stats-row">
                     <div class="stat-box">
                         <h3>Дофамин</h3>
@@ -53,7 +67,7 @@
             
             <!-- 3D Объект: Куб Дисциплины -->
             <div class="scene-3d">
-                <div class="cube">
+                <div class="cube" id="mainCube">
                     <div class="cube__face cube__face--front">СИЛА</div>
                     <div class="cube__face cube__face--back">ВОЛЯ</div>
                     <div class="cube__face cube__face--right">ДУХ</div>
@@ -62,6 +76,17 @@
                     <div class="cube__face cube__face--bottom">ЦЕЛЬ</div>
                 </div>
             </div>
+        </div>
+
+        <!-- Дополнительные 3D-объекты -->
+        <div class="floating-objects">
+            <div class="pyramid-3d">
+                <div class="pyramid-face front"></div>
+                <div class="pyramid-face back"></div>
+                <div class="pyramid-face left"></div>
+                <div class="pyramid-face right"></div>
+            </div>
+            <div class="sphere-3d"></div>
         </div>
     </main>
 
@@ -104,7 +129,51 @@
         </div>
     </main>
 
-    <!-- СТРАНИЦА 3: ИНСТРУМЕНТЫ -->
+    <!-- СТРАНИЦА 3: СИТХИ VS ДЖЕДАИ -->
+    <main id="philosophy" class="page">
+        <div class="content-wrapper single-column">
+            <h2 class="section-title">Темная сторона vs <span class="accent">Светлая сторона</span></h2>
+            <p class="subtitle-center">В каждом из нас идет борьба. Кто победит в тебе?</p>
+            
+            <div class="philosophy-grid">
+                <div class="side-card sith">
+                    <div class="side-icon">⚡</div>
+                    <h3>Ситх (Слабость)</h3>
+                    <ul>
+                        <li>Мгновенное удовольствие</li>
+                        <li>Потеря энергии и мотивации</li>
+                        <li>Туман в голове</li>
+                        <li>Зависимость от дофамина</li>
+                        <li>Чувство вины и стыда</li>
+                        <li>Изоляция от реальных отношений</li>
+                    </ul>
+                    <div class="side-quote">"Легкий путь ведет к разрушению"</div>
+                </div>
+
+                <div class="vs-divider">VS</div>
+
+                <div class="side-card jedi">
+                    <div class="side-icon">✨</div>
+                    <h3>Джедай (Сила)</h3>
+                    <ul>
+                        <li>Отложенное вознаграждение</li>
+                        <li>Избыток энергии и драйва</li>
+                        <li>Кристальная ясность ума</li>
+                        <li>Контроль над инстинктами</li>
+                        <li>Гордость и самоуважение</li>
+                        <li>Притяжение реальных отношений</li>
+                    </ul>
+                    <div class="side-quote">"Дисциплина — это свобода"</div>
+                </div>
+            </div>
+
+            <div class="philosophy-quote">
+                <p>"Ты не можешь контролировать свои мысли, но ты можешь контролировать свои действия. Каждый раз, когда ты говоришь 'нет', ты становишься сильнее."</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- СТРАНИЦА 4: ИНСТРУМЕНТЫ -->
     <main id="tools" class="page">
         <div class="content-wrapper single-column">
             <h2 class="section-title">Дыхательная <span class="accent">Якорь</span></h2>
@@ -126,7 +195,49 @@
         </div>
     </main>
 
-    <!-- СТРАНИЦА 4: МИНИ-ИГРА -->
+    <!-- СТРАНИЦА 5: РАССКАЗАТЬ ДРУЗЬЯМ -->
+    <main id="friends" class="page">
+        <div class="content-wrapper single-column">
+            <h2 class="section-title">Призыв к <span class="accent">Действию</span></h2>
+            <p class="subtitle-center">Один идет быстрее, но вместе вы дойдете дальше. Расскажи друзьям о челлендже.</p>
+            
+            <div class="share-methods">
+                <div class="share-card">
+                    <h3>📱 Социальные сети</h3>
+                    <p>Выложи пост о своем участии. Публичное обязательство увеличивает шансы на успех на 65%.</p>
+                    <button class="share-btn" onclick="copyShareText()">Скопировать текст</button>
+                </div>
+
+                <div class="share-card">
+                    <h3>💬 Личные сообщения</h3>
+                    <p>Напиши близкому другу: "Бро, я в Недрочабре. Поддержишь?" Настоящие друзья присоединятся.</p>
+                    <button class="share-btn" onclick="showMessage('Текст скопирован! Отправь другу')">Скопировать текст</button>
+                </div>
+
+                <div class="share-card">
+                    <h3>👥 Группа поддержки</h3>
+                    <p>Создай чат с друзьями-участниками. Ежедневные отчеты и взаимная поддержка творят чудеса.</p>
+                    <button class="share-btn" onclick="showMessage('Идея: создай Telegram-группу')">Узнать больше</button>
+                </div>
+            </div>
+
+            <div class="motivation-block">
+                <h3>Почему это важно рассказать?</h3>
+                <ul>
+                    <li><strong>Социальная ответственность</strong> — когда другие знают, сложнее сорваться</li>
+                    <li><strong>Вдохновение</strong> — твой пример может изменить чью-то жизнь</li>
+                    <li><strong>Поддержка</strong> — в трудные моменты друзья вытащат тебя</li>
+                    <li><strong>Нормализация</strong> — чем больше людей говорят об этом, тем меньше стигмы</li>
+                </ul>
+            </div>
+
+            <div class="secret-link">
+                <p>Есть секретная страница... <a href="#" id="secretLink" onclick="goToSecret(event)">для избранных</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- СТРАНИЦА 6: МИНИ-ИГРА -->
     <main id="game" class="page">
         <div class="content-wrapper single-column">
             <h2 class="section-title">Тренажер <span class="accent">Воли</span></h2>
@@ -142,6 +253,29 @@
                 </div>
             </div>
             <div id="gameMessage" class="game-message"></div>
+        </div>
+    </main>
+
+    <!-- СЕКРЕТНАЯ СТРАНИЦА ДЛЯ МАКСА -->
+    <main id="secret" class="page secret-page">
+        <div class="secret-content">
+            <div class="scratch-marks" id="scratchMarks"></div>
+            <div class="monster-3d" id="monster">
+                <div class="monster-head">
+                    <div class="monster-eye left">
+                        <div class="monster-pupil"></div>
+                    </div>
+                    <div class="monster-eye right">
+                        <div class="monster-pupil"></div>
+                    </div>
+                    <div class="monster-mouth">
+                        <div class="teeth"></div>
+                    </div>
+                </div>
+                <div class="monster-body"></div>
+            </div>
+            <h1 class="secret-title" id="secretTitle">МАКС...</h1>
+            <p class="secret-text" id="secretText">Ты не должен был сюда заходить...</p>
         </div>
     </main>
 
